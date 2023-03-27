@@ -40,3 +40,6 @@ data class DrinkEntity(
     val hasAlcoholic: String = "Non_Alcoholic"
 
 )
+
+fun Drink.asFavoriteEntity(): DrinkEntity =
+    DrinkEntity(this.tragoId, this.imagen, this.nombre, this.descripcion, this.hasAlcoholic)

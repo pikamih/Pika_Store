@@ -17,7 +17,7 @@ class MainAdapater(
     RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnTragoClickListener {
-        fun onTagoClick(drink: Drink)
+        fun onTagoClick(drink: Drink, position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -41,7 +41,7 @@ class MainAdapater(
             Glide.with(context).load(item.imagen).centerCrop().into(itemView.img_tragos)
             itemView.txt_titulo.text = item.nombre
             itemView.txt_descripciom.text = item.descripcion
-            itemView.setOnClickListener{itemClickLister.onTagoClick(item)}
+            itemView.setOnClickListener{itemClickLister.onTagoClick(item, position)}
         }
     }
 }

@@ -29,10 +29,19 @@
         android:id="@+id/tragosDetalleFragment"
         android:name="com.example.pika_store.ui.TragosDetalleFragment"
         android:label="Detalles"
-        tools:layout="@layout/fragment_tragos_detalle" />
+        tools:layout="@layout/fragment_tragos_detalle" >
+        <argument
+            android:name="drink"
+            app:argType="com.example.pika_store.data.model.Drink" />
+    </fragment>
     <fragment
         android:id="@+id/favoritosFragment"
         android:name="com.example.pika_store.ui.FavoritosFragment"
-        android:label="fragment_favoritos"
-        tools:layout="@layout/fragment_favoritos" />
+        android:label="My Favoritos"
+        tools:layout="@layout/fragment_favoritos">
+        <action
+            android:id="@+id/action_favoritosFragment_to_tragosDetalleFragment"
+            app:destination="@id/tragosDetalleFragment"
+            app:popUpTo="@id/favoritosFragment" />
+    </fragment>
 </navigation>

@@ -1,6 +1,7 @@
 package com.example.pika_store.ui.viewmodel
 
 import androidx.lifecycle.*
+import com.example.pika_store.data.model.Drink
 import com.example.pika_store.data.model.DrinkEntity
 import com.example.pika_store.domain.Repo
 import com.example.pika_store.vo.Resource
@@ -43,6 +44,12 @@ class MainViewModel(private val repo: Repo):ViewModel(){
             emit(repo.getTragosFavoritos())
         }catch (e: Exception){
             emit(Resource.Failure(e))
+        }
+    }
+
+    fun deleteDrink(drink: Drink){
+        viewModelScope.launch {
+            repo.deleteDrink(drink)
         }
     }
 }

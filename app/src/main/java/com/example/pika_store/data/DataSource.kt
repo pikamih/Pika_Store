@@ -3,6 +3,7 @@ package com.example.pika_store.data
 import com.example.pika_store.AppDatabase
 import com.example.pika_store.data.model.Drink
 import com.example.pika_store.data.model.DrinkEntity
+import com.example.pika_store.data.model.asFavoriteEntity
 import com.example.pika_store.vo.Resource
 import com.example.pika_store.vo.RetrofitClient
 
@@ -19,4 +20,7 @@ class DataSource(private val appDatabase: AppDatabase) {
         return Resource.Success(appDatabase.tragoDao().getAllFavoriteDrinks())
     }
 
+    suspend fun deleteDrink(drink: Drink){
+        appDatabase.tragoDao().deleteDrink(drink.asFavoriteEntity())
+    }
 }

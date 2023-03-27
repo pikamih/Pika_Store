@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -92,7 +91,7 @@ class MainFragment : Fragment(), MainAdapater.OnTragoClickListener {
     }
 
 
-    override fun onTagoClick(drink: Drink) {
+    override fun onTagoClick(drink: Drink, position: Int) {
         val bundle = Bundle()
         bundle.putParcelable("drink", drink)
         findNavController().navigate(R.id.action_mainFragment_to_tragosDetalleFragment, bundle)
